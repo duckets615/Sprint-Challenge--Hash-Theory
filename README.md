@@ -1,3 +1,12 @@
+#### [Theory of Computation]
+- [ ] Boolean 1
+- [ ] Boolean 2
+- [ ] Boolean 3
+
+#### [Hash Tables]
+- [ ] ex1
+- [ ] ex2
+
 # Sprint Challenge: Theory of Computation and Hash Tables
 
 This challenge allows you to practice the concepts and techniques learned over the past week and apply them in a concrete project. This Sprint, we explored the history and theory of computation, diving deep into memory and pointers by building array functions and hash tables. In your challenge this week, you will demonstrate proficiency by filling out boolean truth tables and solving algorithms in C using hash tables.
