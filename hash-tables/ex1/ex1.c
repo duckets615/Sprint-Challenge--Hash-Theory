@@ -1,54 +1,29 @@
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "hashtable.h"
 #include "ex1.h"
 
-Answer *get_indices_of_item_weights(int *weights, int length, int limit) {
-  HashTable *ht = create_hash_table(16);
-  Answer *answer = malloc(sizeof(Answer)); // answer struct
+Answer *get_indices_of_item_weights(int *weights, int length, int limit)
+{
+  HashTable *ht = create_hash_table(16); // built in mallocs need to be free
 
-  // insert weights into the hash table
-  for ( int i = 0; i < length; i++) {
+  // YOUR CODE HERE
+  Answer *match = malloc(sizeof(Answer));
+
+  for (int i = 0; i < length; i++) {
+    if (hash_table_retrieve(ht, limit-weights[i]) != -1) { // if there's a match (retrieve -> takes key, returns value)
+      match->index_1 = i;
+      match->index_2 = hash_table_retrieve(ht, limit-weights[i]);
+
+      destroy_hash_table(ht); // frees ht, capacity, and storage
+      return match;
+    }
     hash_table_insert(ht, weights[i], i);
   }
 
-  //compare values- bigger smaller
-  for(int i = 0;i < length;i++){
-   int weight = weights[i];
-   int match = limit - weight;
-
-   int index = hash_table_retrieve(ht, mat
-
-   // If item, compare if match and weight are equal and then
-   // iterate thru and set weight_index to i
-   if(index != -1) {
-     int weight_index = hash_table_retrieve(ht, weight);
-     if(weight == match){
-       for(int i = 0;i < length;i++){
-         if(weights[i] == weight && i != index){
-           weight_index = i;
-         }
-       }
-     }
-     // returned answer
-     if(index < weight_index){
-       answer->index_1 = weight_index;
-       answer->index_2 = index;
-     } else {
-       answer->index_1  = index;
-       answer->index_2 = weight_index;
-     }
-
-     // Free up memory
-     destroy_hash_table(ht);
-     return answer;
-   }
- }
-
- // If only single item, free memory then return NULL
- destroy_hash_table(ht);
- return NULL;
+  destroy_hash_table(ht); // frees ht, capacity, and storage
+  return NULL;
 }
 
 void print_answer(Answer *answer)
