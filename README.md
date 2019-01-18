@@ -1,11 +1,11 @@
 #### [Theory of Computation]
-- [ ] Boolean 1
-- [ ] Boolean 2
-- [ ] Boolean 3
+- [x] Boolean 1
+- [x] Boolean 2
+- [x] Boolean 3
 
 #### [Hash Tables]
-- [ ] ex1
-- [ ] ex2
+- [?] ex1
+- [?] ex2
 
 # Sprint Challenge: Theory of Computation and Hash Tables
 
