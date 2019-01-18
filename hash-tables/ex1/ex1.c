@@ -4,21 +4,14 @@
 #include "hashtable.h"
 #include "ex1.h"
 
-Answer *get_indices_of_item_weights(int *weights, int length, int limit)
-{
+Answer *get_indices_of_item_weights(int *weights, int length, int limit) {
   HashTable *ht = create_hash_table(16);
-
-
-  // YOUR CODE HERE
   Answer *answer = malloc(sizeof(Answer)); // answer struct
-
-
 
   // insert weights into the hash table
   for ( int i = 0; i < length; i++) {
     hash_table_insert(ht, weights[i], i);
   }
-
 
   //compare values- bigger smaller
   for(int i = 0;i < length;i++){
@@ -27,12 +20,9 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 
    int index = hash_table_retrieve(ht, mat
 
-
-
    // If item, compare if match and weight are equal and then
    // iterate thru and set weight_index to i
-   if(index != -1){
-
+   if(index != -1) {
      int weight_index = hash_table_retrieve(ht, weight);
      if(weight == match){
        for(int i = 0;i < length;i++){
@@ -41,7 +31,6 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
          }
        }
      }
-
      // returned answer
      if(index < weight_index){
        answer->index_1 = weight_index;
