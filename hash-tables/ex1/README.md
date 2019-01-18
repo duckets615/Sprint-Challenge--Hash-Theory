@@ -6,10 +6,9 @@ typdef struct Answer {
   int index_1;
   int index_2;
 } Answer;
-```
 where each struct field represents the item weights of the two packages. _**The higher valued index should be placed in the `index_1` field and the smaller index should be placed in the `index_2` field.**_ If such a pair doesn’t exist for the given inputs, your function should return `NULL`.
 
-_NOTE:_ When calling `hash_table_retrieve` with a key that doesn't exist in the hash table, `hash_table_retrieve` will return -1. 
+_NOTE:_ When calling `hash_table_retrieve` with a key that doesn't exist in the hash table, `hash_table_retrieve` will return -1.
 
 Your solution should run in linear time.
 
@@ -20,8 +19,8 @@ output: Answer{ index_1: 3, index_2: 1 }  # since these are the indices of weigh
 ```
 
 ## Hints
- 
+
 * A brute-force solution would involve two nested loops, yielding a quadratic-runtime solution. Can we use a hash table in order to implement a solution with a better runtime?
-* Think about what we can store in the hash table in order to help us to solve this problem more efficiently. 
-* What if we store each weight in the input list as keys? What would be a useful thing to store as the value for each key? 
+* Think about what we can store in the hash table in order to help us to solve this problem more efficiently.
+* What if we store each weight in the input list as keys? What would be a useful thing to store as the value for each key?
 * If we store each weight's list index as its value, we can then check to see if the hash table contains an entry for `limit - weight`. If it does, then we've found the two items whose weights sum up to the `limit`!
